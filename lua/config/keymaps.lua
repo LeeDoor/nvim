@@ -9,3 +9,11 @@ vim.keymap.set("n", "<leader>cc", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = 
 
 vim.keymap.set("n", "gt", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "gT", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous Buffer" })
+
+vim.keymap.set("n", "<leader>yf", function()
+    vim.fn.setreg("+", vim.fn.expand("%:t"))
+end, { desc = "Yank Filename" })
+
+vim.keymap.set("n", "<leader>yp", function()
+    vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Yank File Path" })
