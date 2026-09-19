@@ -19,7 +19,9 @@
                     "type": "os"
                 },
                 {
-                    "foreground": "p:blue",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}p:pink{{ else }}p:blue{{ end }}"
+                    ],
                     "style": "plain",
                     "template": "{{ .UserName }}@{{ .HostName }} ",
                     "type": "session"
@@ -61,18 +63,8 @@
                 {
                     "type": "text",
                     "style": "plain",
-                    "always_enabled": true,
-                    "valid_line": true,
-                    "foreground_templates": [
-                        "{{ if gt .Code 0 }}p:pink{{ else }}p:blue{{ end }}"
-                    ],
-                    "template": "\uf111"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
                     "foreground": "p:text",
-                    "template": " >"
+                    "template": ">"
                 }
             ],
             "type": "prompt"
@@ -81,5 +73,3 @@
     "final_space": true,
     "version": 4
 }
-
-
