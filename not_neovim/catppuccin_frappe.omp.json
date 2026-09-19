@@ -59,18 +59,14 @@
             "newline": true,
             "segments": [
                 {
-                    "type": "status",
+                    "type": "text",
                     "style": "plain",
-                    "foreground": "p:pink",
                     "always_enabled": true,
-                    "template": "{{ if not .Error }}\uf111{{ end }}"
-                },
-                {
-                    "type": "status",
-                    "style": "plain",
-                    "foreground": "p:pink",
-                    "always_enabled": true,
-                    "template": "{{ if .Error }}\uf111{{ end }}"
+                    "valid_line": true,
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}p:pink{{ else }}p:blue{{ end }}"
+                    ],
+                    "template": "\uf111"
                 },
                 {
                     "type": "text",
@@ -85,3 +81,5 @@
     "final_space": true,
     "version": 4
 }
+
+
