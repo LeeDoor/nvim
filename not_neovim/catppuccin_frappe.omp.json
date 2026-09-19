@@ -1,11 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "palette": {
-        "os": "#ACB0BE",
-        "closer": "p:os",
-        "pink": "#F4B8E4",
-        "lavender": "#BABBF1",
-        "blue": "#8CAAEE"
+        "os": "#a5adce",
+        "text": "#c6d0f5",
+        "pink": "#f4b8e4",
+        "lavender": "#babbf1",
+        "blue": "#8caaee",
+        "overlay0": "#737994"
     },
     "blocks": [
         {
@@ -16,6 +17,12 @@
                     "style": "plain",
                     "template": "{{.Icon}} ",
                     "type": "os"
+                },
+                {
+                    "foreground": "p:blue",
+                    "style": "plain",
+                    "template": "{{ .UserName }}@{{ .HostName }} ",
+                    "type": "session"
                 },
                 {
                     "foreground": "p:pink",
@@ -34,31 +41,42 @@
                         "branch_icon": "\ue725 ",
                         "cherry_pick_icon": "\ue29b ",
                         "commit_icon": "\uf417 ",
-                        "fetch_status": false,
-                        "fetch_upstream_icon": false,
                         "merge_icon": "\ue727 ",
                         "no_commits_icon": "\uf0c3 ",
                         "rebase_icon": "\ue728 ",
                         "revert_icon": "\uf0e2 ",
                         "tag_icon": "\uf412 "
                     },
+                    "style": "plain",
                     "template": "{{ .HEAD }} ",
-                    "style": "plain",
                     "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "status",
+                    "style": "plain",
+                    "foreground": "p:pink",
+                    "always_enabled": true,
+                    "template": "{{ if not .Error }}\uf111{{ end }}"
                 },
                 {
+                    "type": "status",
                     "style": "plain",
-                    "foreground": "p:closer",
-                    "template": "\uf105 ",
-                    "type": "text",
-                    "max_width": 119
+                    "foreground": "p:pink",
+                    "always_enabled": true,
+                    "template": "{{ if .Error }}\uf111{{ end }}"
                 },
                 {
-                    "style": "plain",
-                    "foreground": "p:closer",
-                    "template": "\n\uf105 ",
                     "type": "text",
-                    "min_width": 120
+                    "style": "plain",
+                    "foreground": "p:text",
+                    "template": " >"
                 }
             ],
             "type": "prompt"
